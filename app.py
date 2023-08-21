@@ -29,5 +29,21 @@ def login():
 def user(kintamasis):
     return render_template('vardas.html', sablono_kint=kintamasis)
 
+@app.route('/pasisveikink5', methods=['GET', 'POST'])
+def pasisveikink5():
+    if request.method == 'GET':
+        return render_template('pasisveikink.html')
+    if request.method == 'POST':
+        vardas = request.form['laukelis']
+        return render_template('pakartok.html', sablono_kint=vardas)
+    else:
+        return render_template('pasisveikink.html')
+
+@app.route('/pakartok')
+def pakartok():
+    return render_template('pakartok.html')
+
+
+
 if __name__ == "__main__":
     app.run()
